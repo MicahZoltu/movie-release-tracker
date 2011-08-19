@@ -1,0 +1,23 @@
+<!-- Indices written at Sun, 14 Aug 2011 19:21:10 UTC -->
+
+<datastore-indexes>
+
+    <!-- Used 7 times in query history -->
+    <datastore-index kind="TrackedMovie" ancestor="false" source="auto">
+        <property name="userId" direction="asc"/>
+        <property name="dvdRelease" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="TrackedMovie" ancestor="false" source="auto">
+        <property name="userId" direction="asc"/>
+        <property name="theaterRelease" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Movie" ancestor="false" source="auto">
+        <property name="userCount" direction="desc"/>
+        <property name="theaterRelease" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

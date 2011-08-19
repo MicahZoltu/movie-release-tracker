@@ -1,0 +1,35 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:personal="urn:import:com.zoltu.MovieReleases.client.widgets.personal_list"
+	xmlns:popular="urn:import:com.zoltu.MovieReleases.client.widgets.popular_list" xmlns:imdb="urn:import:com.zoltu.MovieReleases.client.widgets.add_imdb_link" xmlns:details="urn:import:com.zoltu.MovieReleases.client.widgets.movie_details">
+
+	<ui:style field="style">
+		.dockmain {
+			min-width: 40em;
+			min-height: 21em;
+		}
+	</ui:style>
+	<g:DockLayoutPanel unit='EM' addStyleNames='{style.dockmain}'>
+		<g:west size='30'>
+			<g:DockLayoutPanel unit='EM'>
+				<g:center>
+					<g:TabLayoutPanel barHeight="2" barUnit="EM">
+						<g:tab>
+							<g:header>Personal Movies</g:header>
+							<personal:PersonalListViewImpl ui:field='personalListView'/>
+						</g:tab>
+						<g:tab>
+							<g:header>Popular Movies</g:header>
+							<popular:PopularListViewImpl ui:field='popularListView'/>
+						</g:tab>
+					</g:TabLayoutPanel>
+				</g:center>
+				<g:south size='5.5'>
+					<imdb:AddImdbViewImpl ui:field='addImdbView'/>
+				</g:south>
+			</g:DockLayoutPanel>
+		</g:west>
+		<g:center>
+			<details:DetailsViewImpl ui:field='detailsView'/>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder>

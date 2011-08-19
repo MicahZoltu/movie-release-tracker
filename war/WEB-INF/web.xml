@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>requestFactoryServlet</servlet-name>
+		<servlet-class>com.zoltu.MovieReleases.server.MyRequestFactoryServlet</servlet-class>
+		<init-param>
+			<param-name>symbolMapsDirectory</param-name>
+			<!-- You'll need to compile with -extras and move the symbolMaps directory to this location if you want stack trace deobfuscation to work -->
+			<param-value>WEB-INF/classes/symbolMaps/</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>requestFactoryServlet</servlet-name>
+		<url-pattern>/gwtRequest</url-pattern>
+	</servlet-mapping>
+
+	<!-- Filters -->
+	<filter>
+		<description>This filter demonstrates making GAE authentication services visible to a RequestFactory client.</description>
+		<filter-name>AuthenticationFilter</filter-name>
+		<filter-class>com.zoltu.gae_authentication.server.AuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>/gwtRequest/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>MovieReleases.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
